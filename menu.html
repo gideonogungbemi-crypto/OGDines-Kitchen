@@ -1,118 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OGDines Kitchen</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #fffaf6;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #fffdf8;
       color: #333;
     }
 
     header {
-      background: linear-gradient(to right, #ff7e5f, #feb47b);
-      padding: 60px 20px;
-      text-align: center;
-      color: #fff;
+      background-color: #ff6f3c;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
-    header h1 {
+    header img {
+      max-height: 50px;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 50px 20px;
+      background-image: url('https://images.unsplash.com/photo-1604909053723-7984f9a299f5');
+      background-size: cover;
+      background-position: center;
+      color: white;
+    }
+
+    .hero h1 {
       font-size: 3rem;
       margin-bottom: 10px;
     }
 
-    header p {
+    .hero p {
       font-size: 1.2rem;
     }
 
-    .hero-image {
-      width: 100%;
-      max-width: 800px;
-      margin: 30px auto;
-      display: block;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .content {
-      padding: 40px 20px;
+    .section {
+      padding: 60px 20px;
       text-align: center;
-      max-width: 900px;
-      margin: auto;
     }
 
-    .content p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-
-    .buttons {
-      margin-top: 30px;
+    .section img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin-bottom: 20px;
     }
 
     .buttons a {
-      text-decoration: none;
-      padding: 12px 24px;
+      display: inline-block;
       margin: 10px;
+      padding: 12px 20px;
       background-color: #ff6f3c;
-      color: #fff;
-      border-radius: 6px;
-      font-weight: 600;
-      transition: 0.3s ease;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
     }
 
     .buttons a:hover {
-      background-color: #e55b25;
+      background-color: #e85d2a;
     }
 
     footer {
       background-color: #333;
       color: white;
       text-align: center;
-      padding: 25px 10px;
-      margin-top: 50px;
-      font-size: 0.9rem;
+      padding: 20px;
     }
 
-    .social-icons img {
-      width: 24px;
-      margin: 0 10px;
-      vertical-align: middle;
+    .form-section form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .form-section input, .form-section textarea {
+      padding: 10px;
+      font-size: 1rem;
+    }
+
+    .form-section button {
+      background-color: #ff6f3c;
+      border: none;
+      padding: 12px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .form-section button:hover {
+      background-color: #e85d2a;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Welcome to OGDines Kitchen</h1>
-    <p>Affordable. Delicious. Home-Cooked Goodness.</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/65/Food_Network_logo.svg" alt="OGDines Logo">
+    <nav>
+      <a href="#about">About</a>
+      <a href="#menu">Menu</a>
+      <a href="#order">Order</a>
+      <a href="#track">Track</a>
+      <a href="#contact">Contact</a>
+      <a href="#admin">Admin</a>
+    </nav>
   </header>
 
-  <img class="hero-image" src="https://images.unsplash.com/photo-1606788075761-268f482c66d0?auto=format&fit=crop&w=1000&q=80" alt="Delicious Food from OGDines" />
+  <section class="hero">
+    <h1>Welcome to OGDines Kitchen</h1>
+    <p>Affordable. Delicious. Home-Cooked Goodness.</p>
+  </section>
 
-  <div class="content">
-    <p>At OGDines Kitchen, we serve freshly prepared, pocket-friendly meals made with love and care. Whether you're craving authentic local dishes or fast, satisfying bites, we've got something for every craving.</p>
+  <section id="about" class="section">
+    <h2>About Us</h2>
+    <p>OGDines Kitchen is a food brand that serves freshly prepared meals that are both affordable and satisfying. We specialize in local delicacies and fast food options for daily cravings.</p>
+    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c" alt="About Image">
+  </section>
 
+  <section id="menu" class="section">
+    <h2>Our Menu</h2>
+    <p>Check out some of our most loved meals.</p>
+    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" alt="Menu Sample">
+  </section>
+
+  <section id="order" class="section form-section">
+    <h2>Place an Order</h2>
+    <form action="https://wa.me/2348157247237" target="_blank">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="text" name="meal" placeholder="Meal of Choice" required>
+      <textarea name="address" placeholder="Delivery Address" rows="3" required></textarea>
+      <button type="submit">Order on WhatsApp</button>
+    </form>
+  </section>
+
+  <section id="track" class="section">
+    <h2>Track Your Order</h2>
+    <p>Feature coming soon...</p>
+  </section>
+
+  <section id="contact" class="section">
+    <h2>Contact Us</h2>
+    <p>Have questions or feedback? We'd love to hear from you.</p>
     <div class="buttons">
-      <a href="https://wa.me/2348139988354" target="_blank">Order on WhatsApp</a>
-      <a href="https://instagram.com/ogdineskitchen" target="_blank">Visit Instagram</a>
+      <a href="https://wa.me/2348157247237" target="_blank">Chat on WhatsApp</a>
+      <a href="mailto:ogdineskitchen@gmail.com">Send an Email</a>
     </div>
-  </div>
+  </section>
+
+  <section id="admin" class="section">
+    <h2>Admin Portal</h2>
+    <p>For internal use only. <a href="#">Login</a></p>
+  </section>
 
   <footer>
     <p>&copy; 2025 OGDines Kitchen. All rights reserved.</p>
-    <div class="social-icons">
-      <a href="https://instagram.com/ogdineskitchen" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram"/>
-      </a>
-      <a href="https://wa.me/2348139988354" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"/>
-      </a>
-    </div>
   </footer>
 
 </body>
