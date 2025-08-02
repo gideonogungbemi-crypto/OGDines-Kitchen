@@ -1,82 +1,42 @@
-/* Global styles */
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f5f5f5;
+// ========== Order Tracking Logic ==========
+function trackOrder() {
+  const input = document.getElementById('orderInput').value.trim();
+  const resultText = document.getElementById('resultText');
+
+  if (input === "") {
+    resultText.textContent = "Please enter your Order ID or phone number.";
+    resultText.style.color = "red";
+    return;
+  }
+
+  // Dummy lookup example
+  if (input === "12345" || input === "08157247237") {
+    resultText.textContent = "✅ Your order is being prepared. Estimated delivery: 25 mins.";
+    resultText.style.color = "green";
+  } else {
+    resultText.textContent = "❌ Order not found. Please try again or contact support.";
+    resultText.style.color = "red";
+  }
 }
 
-header {
-  background-color: #007bff;
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
+// ========== Place Order via WhatsApp ==========
+function submitOrder(event) {
+  event.preventDefault();
 
-nav {
-  background-color: #0056b3;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding: 10px 0;
-}
+  const name = document.getElementById('name').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const address = document.getElementById('address').value.trim();
+  const menu = document.getElementById('menu').value;
+  const quantity = document.getElementById('quantity').value;
 
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
+  if (!name || !phone || !address || !menu || !quantity) {
+    alert("❌ Please fill in all fields.");
+    return;
+  }
 
-nav a:hover {
-  text-decoration: underline;
-}
+  const message = `Hello OGDines Kitchen! 🍽️%0A%0AI'd like to place an order:%0A%0A👤 Name: ${name}%0A📞 Phone: ${phone}%0A🏠 Address: ${address}%0A📝 Order: ${menu}%0A🔢 Quantity: ${quantity}%0A%0AThank you!`;
 
-main {
-  padding: 20px;
-}
-
-.menu-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-}
-
-.menu-item {
-  background-color: white;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-.menu-item img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 5px;
-}
-
-.menu-item h3 {
-  margin: 10px 0;
-}
-
-button {
-  background-color: #28a745;
-  color: white;
-  border: none;
-  padding: 8px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #218838;
-}
-
-footer {
-  background-color: #343a40;
-  color: white;
-  text-align: center;
-  padding: 15px;
-  margin-top: 40px;
+  const whatsappNumber = '2348157247237';
+  const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+  window.open(url, '_blank');
 }
