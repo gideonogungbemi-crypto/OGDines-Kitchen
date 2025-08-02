@@ -1,64 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Place Order - OGDines Kitchen</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f8f8f8;
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      padding: 20px;
+      padding: 0;
+      background-color: #fff8f0;
+      color: #333;
     }
-    h1 {
+
+    header {
+      background-color: #8B0000;
+      color: white;
+      padding: 20px;
       text-align: center;
     }
-    form {
-      max-width: 500px;
-      margin: auto;
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+    nav a {
+      margin: 0 15px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
     }
+
+    main {
+      padding: 40px 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      color: #8B0000;
+      margin-bottom: 20px;
+    }
+
     label {
       display: block;
       margin-top: 15px;
+      margin-bottom: 5px;
       font-weight: bold;
     }
-    input, select {
+
+    input, select, textarea {
       width: 100%;
       padding: 10px;
-      margin-top: 5px;
-      border-radius: 5px;
       border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
     }
+
     button {
-      margin-top: 20px;
-      background: #28a745;
+      background-color: #8B0000;
       color: white;
-      padding: 10px;
-      width: 100%;
+      padding: 12px 25px;
       border: none;
       border-radius: 5px;
       font-size: 16px;
       cursor: pointer;
+      margin-top: 20px;
     }
+
     button:hover {
-      background: #218838;
+      background-color: #a30000;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #f1f1f1;
+      color: #555;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
-  <h1>Place Your Order</h1>
-  <form id="orderForm">
-    <label for="name">Full Name:</label>
-    <input type="text" id="name" name="name" required>
 
-    <label for="item">Select Menu Item:</label>
-    <select id="item" name="item" required>
-      <option value="">--Select--</option>
-      <option value="Jollof Rice">Jollof Rice</option>
-      <option value="Fried Rice">Fried Rice</option>
-      <option value=
+  <header>
+    <h1>OGDines Kitchen</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="order.html">Order</a>
+      <a href="contact.html">Contact</a>
+      <a href="order-tracking.html">Track Order</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Place Your Order</h2>
+    <form onsubmit="submitOrder(event)">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" required>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" required>
+
+      <label for="address">Delivery Address</label>
+      <textarea id="address" rows="3" required></textarea>
+
+      <label for="menu">Select Item</label>
+      <select id="menu" required>
+        <option value="">-- Choose an item --</option>
+        <option value="Jollof Rice">Jollof Rice</option>
+        <option value="Fried Rice">Fried Rice</option>
+        <option value="Shawarma">Shawarma</option>
+        <option value="Meat Pie">Meat Pie</option>
+        <option value="Coke">Coke</option>
+        <option value="Fanta">Fanta</option>
+      </select>
+
+      <label for="quantity">Quantity</label>
+      <input type="number" id="quantity" min="1" value="1" required>
+
+      <button type="submit">Place Order via WhatsApp</button>
+    </form>
+  </main>
+
+  <footer>
+    &copy; 2025 OGDines Kitchen. All rights reserved.
+  </footer>
+
+  <script>
+    function submitOrder(event) {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const address = document.getElementById('address').value.trim();
+      const menu = document.getElementById('menu').value;
+      const quantity = document.getElementById('quantity').value;
+
+      const message = `Hello OGDines Kitchen! 🍽️%0A%0AI'd like to place an order:%0A%0A👤 Name: ${name}%0A📞 Phone: ${phone}%0A🏠 Address: ${address}%0A📝 Order: ${menu}%0A🔢 Quantity: ${quantity}%0A%0AThank you!`;
+
+      const whatsappNumber = '2348157247237';
+      const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+    }
+  </script>
+
+</body>
+</html>
