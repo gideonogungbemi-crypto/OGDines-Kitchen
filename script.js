@@ -1,42 +1,49 @@
-// ========== Order Tracking Logic ==========
+// ======= ORDER TRACKING FUNCTION =======
 function trackOrder() {
-  const input = document.getElementById('orderInput').value.trim();
-  const resultText = document.getElementById('resultText');
+  const input = document.getElementById('orderInput').value.trim();
+  const resultText = document.getElementById('resultText');
 
-  if (input === "") {
-    resultText.textContent = "Please enter your Order ID or phone number.";
-    resultText.style.color = "red";
-    return;
-  }
+  if (input === "") {
+    resultText.textContent = "⚠️ Please enter your Order ID or phone number.";
+    resultText.style.color = "crimson";
+    return;
+  }
 
-  // Dummy lookup example
-  if (input === "12345" || input === "08157247237") {
-    resultText.textContent = "✅ Your order is being prepared. Estimated delivery: 25 mins.";
-    resultText.style.color = "green";
-  } else {
-    resultText.textContent = "❌ Order not found. Please try again or contact support.";
-    resultText.style.color = "red";
-  }
+  // Simulated lookup
+  if (input === "12345" || input === "08157247237") {
+    resultText.textContent = "✅ Your order is being prepared! Estimated delivery: 25 mins.";
+    resultText.style.color = "green";
+  } else {
+    resultText.textContent = "❌ Order not found. Please try again or contact us via WhatsApp.";
+    resultText.style.color = "crimson";
+  }
 }
 
-// ========== Place Order via WhatsApp ==========
+// ======= WHATSAPP ORDER SUBMISSION =======
 function submitOrder(event) {
-  event.preventDefault();
+  event.preventDefault();
 
-  const name = document.getElementById('name').value.trim();
-  const phone = document.getElementById('phone').value.trim();
-  const address = document.getElementById('address').value.trim();
-  const menu = document.getElementById('menu').value;
-  const quantity = document.getElementById('quantity').value;
+  const name = document.getElementById('name').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const address = document.getElementById('address').value.trim();
+  const menu = document.getElementById('menu').value;
+  const quantity = document.getElementById('quantity').value;
 
-  if (!name || !phone || !address || !menu || !quantity) {
-    alert("❌ Please fill in all fields.");
-    return;
-  }
+  if (!name || !phone || !address || !menu || !quantity) {
+    alert("⚠️ Please complete all fields before submitting your order.");
+    return;
+  }
 
-  const message = `Hello OGDines Kitchen! 🍽️%0A%0AI'd like to place an order:%0A%0A👤 Name: ${name}%0A📞 Phone: ${phone}%0A🏠 Address: ${address}%0A📝 Order: ${menu}%0A🔢 Quantity: ${quantity}%0A%0AThank you!`;
+  const message = `👋 Hello OGDines Kitchen! I’d like to place an order:
+👤 Name: ${name}
+📞 Phone: ${phone}
+🏠 Address: ${address}
+🍽️ Order: ${menu}
+🔢 Quantity: ${quantity}
+🙏 Thank you!`;
 
-  const whatsappNumber = '2348157247237';
-  const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-  window.open(url, '_blank');
+  const whatsappNumber = "2348157247237";
+  const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+  window.open(whatsappURL, "_blank");
 }
