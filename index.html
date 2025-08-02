@@ -3,26 +3,245 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>OGDines Kitchen</title>
+  <title>Welcome to OGDines Kitchen</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff8f0;
+      color: #333;
+    }
+
+    header {
+      background-color: #8B0000;
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero {
+      background: url('https://images.unsplash.com/photo-1600891963935-c05b47cfa0e5') no-repeat center center/cover;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 1px 1px 5px #000;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      max-width: 600px;
+      margin-bottom: 20px;
+    }
+
+    .hero a {
+      background-color: #25D366;
+      color: white;
+      padding: 12px 25px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+
+    .section {
+      padding: 50px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .about, .menu-preview, .reviews {
+      text-align: center;
+    }
+
+    .menu-items {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .menu-item {
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      width: 250px;
+      padding: 20px;
+    }
+
+    .menu-item img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .menu-item h4 {
+      margin-top: 10px;
+      color: #8B0000;
+    }
+
+    .reviews .review-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .review-card {
+      background-color: #fff;
+      border-left: 5px solid #8B0000;
+      padding: 20px;
+      max-width: 300px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+
+    .review-card p {
+      font-style: italic;
+    }
+
+    .review-card strong {
+      display: block;
+      margin-top: 10px;
+      color: #8B0000;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #f1f1f1;
+      color: #555;
+      margin-top: 40px;
+    }
+
+    /* Floating WhatsApp Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 100;
+    }
+
+    .whatsapp-float a {
+      background-color: #25D366;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .whatsapp-float a:hover {
+      background-color: #1ebd5a;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .menu-items, .review-cards {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
 </head>
 <body>
+
   <header>
-    <h1>Welcome to OGDines Kitchen</h1>
-    <img src="FB_IMG_1754071852802.jpg" alt="OGDines Logo" width="250" />
+    <h1>OGDines Kitchen</h1>
     <nav>
-      <a href="menu.html">Menu</a> |
-      <a href="place-order.html">Order</a> |
-      <a href="track.html">Track</a> |
-      <a href="dashboard.html">Admin</a>
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="order.html">Order</a>
+      <a href="order-tracking.html">Track Order</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <main>
-    <p>Explore our delicious meals, order online, and track your orders with ease.</p>
-  </main>
+  <section class="hero">
+    <h1>Delicious Local Dishes</h1>
+    <p>Savor the rich taste of Nigeria with freshly made meals from OGDines Kitchen – delivered hot to your doorstep!</p>
+    <a href="order.html">Order Now</a>
+  </section>
+
+  <section class="section about">
+    <h2>About Us</h2>
+    <p>OGDines Kitchen is your go-to spot for tasty, affordable Nigerian dishes. From spicy jollof to tender beef, we serve with love and speed. Located in Ilesa, we offer pickup and fast delivery options.</p>
+  </section>
+
+  <section class="section menu-preview">
+    <h2>Menu Highlights</h2>
+    <div class="menu-items">
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1601050690590-56fbd7e4ef13" alt="Jollof Rice">
+        <h4>Jollof Rice & Chicken</h4>
+      </div>
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1589307004512-f18b0b7c9e6c" alt="Shawarma">
+        <h4>Shawarma</h4>
+      </div>
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1611270629569-8b1cf1171e72" alt="Meat Pie">
+        <h4>Meat Pie</h4>
+      </div>
+    </div>
+    <p style="margin-top: 20px;"><a href="menu.html" style="color: #8B0000; text-decoration: underline;">View Full Menu</a></p>
+  </section>
+
+  <section class="section reviews">
+    <h2>What Our Customers Say</h2>
+    <div class="review-cards">
+      <div class="review-card">
+        <p>"Best jollof in town! Their service is always top-notch."</p>
+        <strong>– Tolu A.</strong>
+      </div>
+      <div class="review-card">
+        <p>"Fast delivery, hot food, and affordable prices. I love it!"</p>
+        <strong>– Blessing K.</strong>
+      </div>
+      <div class="review-card">
+        <p>"I ordered shawarma and meat pie, and they were so fresh and tasty!"</p>
+        <strong>– Segun M.</strong>
+      </div>
+    </div>
+  </section>
 
   <footer>
-    <p>&copy; 2025 OGDines Kitchen. All rights reserved.</p>
+    &copy; 2025 OGDines Kitchen. All rights reserved.
   </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <div class="whatsapp-float">
+    <a href="https://wa.me/2348157247237" target="_blank">
+      💬 Chat with us
+    </a>
+  </div>
+
 </body>
 </html>
